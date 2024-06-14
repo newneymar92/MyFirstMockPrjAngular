@@ -1,0 +1,51 @@
+<button nz-button nzType="primary" (click)="showModal()" class="addStudent">
+  <span>Add Student</span>
+</button>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Add Student"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <div *nzModalContent>
+    <form nz-form [formGroup]="formAddStudent">
+      <nz-form-item>
+        <nz-form-label nzRequired [nzSpan]="5">First name</nz-form-label>
+        <nz-form-control
+          nzHasFeedback
+          nzErrorTip="Please input your first name"
+        >
+          <input formControlName="firstname" nz-input required />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired [nzSpan]="5">Last name</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="Please input your last name">
+          <input formControlName="lastname" nz-input />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired [nzSpan]="5">Age</nz-form-label>
+        <nz-form-control nzHasFeedback>
+          <input nz-input formControlName="age" maxlength="3" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label nzRequired [nzSpan]="5">Gender</nz-form-label>
+        <nz-form-control nzHasFeedback>
+          <nz-select formControlName="gender">
+            <ng-container *ngFor="let option of listOptionGender">
+              <nz-option
+                [nzValue]="option.value"
+                [nzLabel]="option.label"
+              ></nz-option>
+            </ng-container>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</nz-modal>

@@ -1,0 +1,91 @@
+<div class="conatiner-fluid">
+  <ul nz-menu nzMode="horizontal">
+    <li nz-menu-item nzSelected>
+      <i nz-icon nzType="home"></i>
+      Home
+    </li>
+    <li nz-submenu nzTitle="Settings" nzIcon="setting">
+      <ul>
+        <li nz-menu-group nzTitle="">
+          <ul>
+            <li nz-menu-item (click)="changePassword()">Change Password</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li nz-menu-item (click)="handleLogout()">
+      <i nz-icon nzType="logout"></i>
+      Logout
+      <a href="#"></a>
+    </li>
+  </ul>
+
+  <nz-modal
+    [(nzVisible)]="isVisible2"
+    nzTitle="Change Password"
+    (nzOnCancel)="handleCancel2()"
+    (nzOnOk)="handleOk2()"
+    [nzOkLoading]="isOkLoading2"
+  >
+    <div *nzModalContent></div>
+  </nz-modal>
+
+  <div class="row">
+    <app-addstudents (newItemEvent)="getAllStudents()"></app-addstudents>
+  </div>
+
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <nz-spin nzSimple="true" nzSize="large" [nzSpinning]="isLoading">
+      </nz-spin>
+    </div>
+    <div class="col-12">
+      <nz-table
+        *ngIf="!isLoading"
+        nzShowPagination="false"
+        #basicTable
+        [nzData]="displayData"
+        class="studentsTable"
+      >
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of displayData">
+            <td>{{ data.firstname }}</td>
+            <td>{{ data.lastname }}</td>
+            <td>{{ data.age }}</td>
+            <td>{{ data.gender | genderLabel }}</td>
+            <td>
+              <app-editstudents
+                [dataStudent]="data"
+                (newItemEvent)="getAllStudents()"
+              ></app-editstudents>
+
+              <nz-divider nzType="vertical"></nz-divider>
+
+              <app-deletestudents></app-deletestudents>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+    <div class="col-12 d-flex justify-content-center p-4">
+      <nz-pagination
+        *ngIf="!isLoading"
+        [nzPageIndex]="pageIndex"
+        [nzTotal]="totalRecord"
+        nzShowSizeChanger
+        [nzPageSize]="pageSize"
+        (nzPageIndexChange)="handlePageIndexChange($event)"
+        (nzPageSizeChange)="handlePageSizeChange($event)"
+      ></nz-pagination>
+    </div>
+  </div>
+</div>
