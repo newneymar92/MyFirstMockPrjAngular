@@ -5,6 +5,7 @@
     class="login-form"
     (ngSubmit)="submitForm()"
   >
+    <div class="text-manage">MANAGE STUDENT</div>
     <div class="text-login">Log in</div>
     <nz-form-item>
       <nz-form-control nzErrorTip="Please input your username!">
@@ -30,18 +31,7 @@
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
-    <div nz-row class="login-form-margin">
-      <div nz-col [nzSpan]="12">
-        <label nz-checkbox formControlName="remember">
-          <span>Remember me</span>
-        </label>
-      </div>
-      <div nz-col [nzSpan]="12">
-        <a class="login-form-forgot" routerLink="/resetpassword"
-          >Forgot password</a
-        >
-      </div>
-    </div>
+
     <button
       nz-button
       class="login-form-button login-form-margin"

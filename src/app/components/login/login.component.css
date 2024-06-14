@@ -1,5 +1,7 @@
 .login-wrapper {
-  background-color: #76c0d1;
+  background-image: url("../../../../src/assets/img/background.jpeg");
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,12 +15,20 @@
   border: 2px solid rgb(96, 148, 182);
   padding: 50px;
   background-color: #fff;
-  /* background-image: radial-gradient( circle farthest-corner at -4% -12.9%,  rgba(74,98,110,1) 0.3%, rgba(30,33,48,1) 90.2% ); */
   .text-login {
     font-size: 30px;
     font-weight: 600;
     padding-bottom: 20px;
-    color: rgb(44, 135, 163);
+    color: rgb(70, 44, 157);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Thêm bóng chữ */
+  }
+
+  .text-manage {
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(0, 153, 255); /* Thay đổi màu để dịu mắt hơn */
+    padding-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Thêm bóng chữ */
   }
 }
 

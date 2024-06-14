@@ -18,7 +18,6 @@ import { EditstudentsComponent } from './components/editstudents/editstudents.co
 import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { GenderLabelPipe } from './pipes/gender-label.pipe';
@@ -34,7 +33,6 @@ registerLocaleData(en);
     DeletestudentsComponent,
     PagenotfoundComponent,
     SignupComponent,
-    ResetpasswordComponent,
     EditstudentsComponent,
     GenderLabelPipe,
   ],

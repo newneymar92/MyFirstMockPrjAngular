@@ -32,4 +32,8 @@ export class StudentsService {
   updateStudent(option: Student, id: string): Observable<Student> {
     return this.http.put<Student>(`${this.apiUrl}/listStudent/${id}`, option);
   }
+
+  deleteStudent(id: string): Observable<Student> {
+    return this.http.delete<Student>(`${this.apiUrl}/listStudent/${id}`);
+  }
 }

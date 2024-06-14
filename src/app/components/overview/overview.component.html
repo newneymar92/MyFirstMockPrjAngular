@@ -70,7 +70,10 @@
 
               <nz-divider nzType="vertical"></nz-divider>
 
-              <app-deletestudents></app-deletestudents>
+              <app-deletestudents
+                [dataStudent]="data"
+                (newItemEvent)="getAllStudents()"
+              ></app-deletestudents>
             </td>
           </tr>
         </tbody>
