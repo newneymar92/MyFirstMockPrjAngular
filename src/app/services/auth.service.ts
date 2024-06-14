@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Account } from '../Student';
 import { Observable, map } from 'rxjs';
+import { Account } from '../Student';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,6 @@ export class AuthService {
     'https://66574f3d9f970b3b36c8c985.mockapi.io/taina18/students';
 
   constructor(private http: HttpClient) {}
-  isloggedIn = false;
 
   checkExistAccount(account: {
     username: string;
@@ -35,14 +34,16 @@ export class AuthService {
   }
 
   checkLoggedIn(): boolean {
-    return this.isloggedIn;
+    const result = localStorage.getItem('login') === 'true';
+    console.log({ result });
+    return result;
   }
 
   login() {
-    this.isloggedIn = true;
+    localStorage.setItem('login', 'true');
   }
 
   logout() {
-    this.isloggedIn = false;
+    localStorage.removeItem('login');
   }
 }

@@ -73,9 +73,9 @@ export class SignupComponent implements OnInit {
       checkPassword: [
         null,
         [
+          this.confirmationValidator,
           Validators.required,
           Validators.minLength(8),
-          this.confirmationValidator,
         ],
       ],
       username: [null, [Validators.required, this.usernameValidator()]],
