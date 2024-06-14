@@ -16,30 +16,12 @@ export class OverviewComponent implements OnInit {
   pageIndex = 1;
   pageSize = 10;
   isLoading = false;
-  isVisible2 = false;
-  isOkLoading2 = false;
 
   constructor(
     private studentService: StudentsService,
     private authService: AuthService,
     private notification: NzNotificationService
   ) {}
-
-  changePassword(): void {
-    this.isVisible2 = true;
-  }
-
-  handleOk2(): void {
-    this.isOkLoading2 = true;
-    setTimeout(() => {
-      this.isVisible2 = false;
-      this.isOkLoading2 = false;
-    }, 1000);
-  }
-
-  handleCancel2(): void {
-    this.isVisible2 = false;
-  }
 
   handleLogout(): void {
     this.authService.logout();
@@ -62,8 +44,6 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllStudents();
-    console.log(this.totalRecord, 'kk');
-
     this.updateDisplayData();
   }
 

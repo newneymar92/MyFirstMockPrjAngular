@@ -35,7 +35,6 @@ export class AuthService {
 
   checkLoggedIn(): boolean {
     const result = localStorage.getItem('login') === 'true';
-    console.log({ result });
     return result;
   }
 

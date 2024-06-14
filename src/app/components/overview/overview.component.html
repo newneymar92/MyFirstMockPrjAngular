@@ -4,31 +4,12 @@
       <i nz-icon nzType="home"></i>
       Home
     </li>
-    <li nz-submenu nzTitle="Settings" nzIcon="setting">
-      <ul>
-        <li nz-menu-group nzTitle="">
-          <ul>
-            <li nz-menu-item (click)="changePassword()">Change Password</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+
     <li nz-menu-item (click)="handleLogout()">
       <i nz-icon nzType="logout"></i>
       Logout
-      <a href="#"></a>
     </li>
   </ul>
-
-  <nz-modal
-    [(nzVisible)]="isVisible2"
-    nzTitle="Change Password"
-    (nzOnCancel)="handleCancel2()"
-    (nzOnOk)="handleOk2()"
-    [nzOkLoading]="isOkLoading2"
-  >
-    <div *nzModalContent></div>
-  </nz-modal>
 
   <div class="row">
     <app-addstudents (newItemEvent)="getAllStudents()"></app-addstudents>
